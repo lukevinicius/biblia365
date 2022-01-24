@@ -5,6 +5,7 @@
 # Xcode
 #
 build/
+yarn.lock
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -53,3 +54,4 @@ buck-out/
 .expo/
 web-build/
 dist/
+yarn.lock
