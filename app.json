@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "biblia365",
+    "slug": "biblia365",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "biblia365"
+}
