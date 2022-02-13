@@ -1,12 +1,14 @@
 import { useNavigation } from '@react-navigation/native';
-
+import * as Yup from 'yup';
 import {
   Text,
   ImageBackground,
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  Alert,
 } from 'react-native';
+import { useState } from 'react';
 import {
   Button,
   DivForm,
@@ -18,16 +20,34 @@ import {
 } from './styles';
 
 import wallpaper from '../../assets/img/wallpaper1.jpg';
+import { useAuth } from '../../hooks/auth';
 
 export function SignIn() {
   const navigation = useNavigation();
+  const { signIn } = useAuth();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  function handleSignIn() {
-    // Fazer o login do usuário, usuário e senha não podem estar vazios
-  }
+  async function handleSignIn() {
+    try {
+      const schema = Yup.object().shape({
+        username: Yup.string().required('Nome de usuário é obrigatório'),
+        password: Yup.string().required('A senha é obrigatória'),
+      });
 
-  function navigateSignUp() {
-    navigation.navigate('SignUp');
+      await schema.validate({ username, password });
+
+      signIn({ username, password });
+    } catch (error: any) {
+      if (error instanceof Yup.ValidationError) {
+        Alert.alert('Opa', error.message);
+      } else {
+        Alert.alert(
+          'Erro na autenticação',
+          'Ocorreu um erro ao fazer login, verifique as credenciais',
+        );
+      }
+    }
   }
 
   return (
@@ -57,6 +77,8 @@ export function SignIn() {
                 borderBottomWidth: 1,
                 borderBottomColor: 'rgba(255, 255, 255, 0.48)',
               }}
+              onChangeText={setUsername}
+              value={username}
             />
             <DivText style={{ fontSize: 18, marginTop: 20, textAlign: 'left' }}>
               Senha
@@ -69,11 +91,13 @@ export function SignIn() {
                 borderBottomWidth: 1,
                 borderBottomColor: 'rgba(255, 255, 255, 0.48)',
               }}
+              onChangeText={setPassword}
+              value={password}
             />
             <Button style={{ marginTop: 30 }}>
               <DivText
                 style={{ fontSize: 20, marginTop: 0 }}
-                onPress={handleSignIn()}
+                onPress={() => handleSignIn()}
               >
                 Entrar
               </DivText>
