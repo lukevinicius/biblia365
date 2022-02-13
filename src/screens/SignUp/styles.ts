@@ -2,7 +2,7 @@ import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
 export const DivTitle = styled.View`
-  flex: 0.3;
+  flex: 0.2;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -20,7 +20,7 @@ export const DivText = styled.Text`
 `;
 export const DivForm = styled.View`
   flex: 0.7;
-  margin: 0 20px 20px 20px;
+  margin: 0 20px 0 20px;
   padding: 15px;
   background: rgba(255, 255, 255, 0.48);
   border-radius: 16px;

@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 
 import {
-  Text,
   ImageBackground,
   ScrollView,
   KeyboardAvoidingView,
@@ -16,18 +15,13 @@ import {
   TextDirection,
   Title,
 } from './styles';
-
 import wallpaper from '../../assets/img/wallpaper1.jpg';
 
-export function SignIn() {
+export function SignUp() {
   const navigation = useNavigation();
 
   function handleSignIn() {
-    // Fazer o login do usuário, usuário e senha não podem estar vazios
-  }
-
-  function navigateSignUp() {
-    navigation.navigate('SignUp');
+    // Fazer o resgistro do usuário, usuário e senha não podem estar vazios
   }
 
   return (
@@ -42,7 +36,7 @@ export function SignIn() {
           contentContainerStyle={{ flex: 1 }}
         >
           <DivTitle>
-            <Title>Entrar</Title>
+            <Title>Resgistrar-se</Title>
           </DivTitle>
           <DivForm>
             <DivText style={{ fontSize: 18, textAlign: 'left' }}>
@@ -51,6 +45,20 @@ export function SignIn() {
             <Input
               placeholder="Username"
               placeholderTextColor="#FFFFFF"
+              autoCorrect={false}
+              autoCapitalize="none"
+              style={{
+                borderBottomWidth: 1,
+                borderBottomColor: 'rgba(255, 255, 255, 0.48)',
+              }}
+            />
+            <DivText style={{ fontSize: 18, marginTop: 20, textAlign: 'left' }}>
+              Email
+            </DivText>
+            <Input
+              placeholder="Email"
+              placeholderTextColor="#FFFFFF"
+              keyboardType="email-address"
               autoCorrect={false}
               autoCapitalize="none"
               style={{
@@ -70,6 +78,18 @@ export function SignIn() {
                 borderBottomColor: 'rgba(255, 255, 255, 0.48)',
               }}
             />
+            <DivText style={{ fontSize: 18, marginTop: 20, textAlign: 'left' }}>
+              Confirmar Senha
+            </DivText>
+            <Input
+              placeholder="Confirmar Senha"
+              placeholderTextColor="#FFFFFF"
+              secureTextEntry
+              style={{
+                borderBottomWidth: 1,
+                borderBottomColor: 'rgba(255, 255, 255, 0.48)',
+              }}
+            />
             <Button style={{ marginTop: 30 }}>
               <DivText
                 style={{ fontSize: 20, marginTop: 0 }}
@@ -78,22 +98,8 @@ export function SignIn() {
                 Entrar
               </DivText>
             </Button>
-            <TextDirection style={{ fontSize: 14, marginTop: 20 }}>
-              <DivText style={{ fontSize: 16, marginTop: 15 }}>
-                Esqueceu a senha?
-              </DivText>
-            </TextDirection>
-            <TextDirection onPress={() => navigation.navigate('SignUp')}>
-              <Text
-                style={{
-                  fontSize: 18,
-                  textAlign: 'center',
-                  marginTop: 40,
-                  color: '#FFFFFF',
-                }}
-              >
-                Novo? <DivText style={{ fontSize: 18 }}>Criar Conta</DivText>
-              </Text>
+            <TextDirection onPress={() => navigation.navigate('SignIn')}>
+              <DivText style={{ fontSize: 18, marginTop: 30 }}>Voltar</DivText>
             </TextDirection>
           </DivForm>
         </ScrollView>
