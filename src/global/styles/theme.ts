@@ -11,7 +11,7 @@ export default {
     shape: '#FFFFFF',
     title: '#2d3436',
     text: '#dff0f1',
-    background: '#F0F2F5',
+    background: '#e5e5e5',
   },
   fonts: {
     regular: 'Mulish_400Regular',

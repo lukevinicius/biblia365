@@ -11,6 +11,7 @@ import {
 import AppLoading from 'expo-app-loading';
 import theme from './src/global/styles/theme';
 import { Home } from './src/screens/Home';
+import { SignIn } from './src/screens/SignIn';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -30,7 +31,7 @@ export default function App() {
         backgroundColor={theme.colors.secundary}
         translucent
       />
-      <Home />
+      <SignIn />
     </ThemeProvider>
   );
 }
