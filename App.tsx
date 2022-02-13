@@ -10,6 +10,7 @@ import {
 } from '@expo-google-fonts/montserrat';
 import AppLoading from 'expo-app-loading';
 import theme from './src/global/styles/theme';
+import { Home } from './src/screens/Home';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,12 +25,12 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Text>Open up App.js to start working on your app!</Text>
       <StatusBar
         barStyle="default"
         backgroundColor={theme.colors.secundary}
         translucent
       />
+      <Home />
     </ThemeProvider>
   );
 }
