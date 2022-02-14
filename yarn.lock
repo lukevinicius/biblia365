@@ -5686,6 +5686,11 @@ react-native-screens@~3.10.1:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
+react-native-simple-gauge@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-simple-gauge/-/react-native-simple-gauge-0.3.1.tgz#33db0824ce8daade3e5602e0c704826c0f287eb0"
+  integrity sha512-aOf18FeSkKnUM+AblnZhSoUZLA1tdCYlbA5SG06OdcCFpf0gtPwQ+bZtqmVztBq5j2Pg2o4UNxLw3u+/W2Jefg==
+
 react-native-web@0.17.1:
   version "0.17.1"
   resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.17.1.tgz#90d473c89dd99b88bc9830b2a9fcdd2fc5f04902"

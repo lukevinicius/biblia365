@@ -37,7 +37,7 @@ export function SignIn() {
 
       await schema.validate({ username, password });
 
-      signIn({ username, password });
+      await signIn({ username, password });
     } catch (error: any) {
       if (error instanceof Yup.ValidationError) {
         Alert.alert('Opa', error.message);

@@ -22,6 +22,7 @@ export interface IDiary {
 }
 
 interface User {
+  id: string;
   email: string;
   name: string;
   username: string;
@@ -72,6 +73,7 @@ function AuthProvider({ children }: AuthProviderProps) {
 
       const userLogged = {
         token,
+        id: user.id,
         name: user.name,
         username: user.username,
         email: user.email,
