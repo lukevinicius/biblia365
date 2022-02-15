@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 
 import {
@@ -10,8 +10,6 @@ import {
 } from '@expo-google-fonts/montserrat';
 import AppLoading from 'expo-app-loading';
 import theme from './src/global/styles/theme';
-import { Home } from './src/screens/Home';
-import { SignIn } from './src/screens/SignIn';
 import { Routes } from './src/routes';
 import { AuthProvider } from './src/hooks/auth';
 

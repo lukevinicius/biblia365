@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import ProgressCircle from 'react-native-progress-circle';
 import { Container } from './styles';
 
@@ -34,7 +34,15 @@ export function Home() {
   }, [load, navigation]);
 
   const renderItem = ({ item }) => (
-    <View style={{ margin: 5 }}>
+    <TouchableOpacity
+      style={{ margin: 5 }}
+      onPress={() =>
+        navigation.navigate('AppStack', {
+          screen: 'MonthDetails',
+          params: { month: item.month },
+        })
+      }
+    >
       <ProgressCircle
         percent={item.percentage}
         radius={50}
@@ -45,15 +53,12 @@ export function Home() {
       >
         <Text>{item.month}</Text>
       </ProgressCircle>
-    </View>
+    </TouchableOpacity>
   );
 
   return (
     <Container>
-      <View style={{ flex: 0.2 }}>
-        <Text>LOGO</Text>
-      </View>
-      <View style={{ flex: 0.2 }}>
+      <View style={{ flex: 0.2, marginTop: '20%' }}>
         <FlatList
           data={dataUser}
           renderItem={renderItem}
